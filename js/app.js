@@ -17,6 +17,18 @@ function personFour() {
   requestHelper(personObject.homeworld, homeRequest);
 }
 
+function personFourteen() {
+  var personObject = JSON.parse(this.responseText);
+  document.getElementById("person14Name").innerHTML = personObject.name;
+
+  function speciesRequest() {
+    var speciesObject = JSON.parse(this.responseText);
+    document.getElementById("person14Species").innerHTML = speciesObject.name;
+  }
+  requestHelper(personObject.species, speciesRequest);
+}
 
 
 requestHelper("http://swapi.co/api/people/4/", personFour);
+requestHelper("http://swapi.co/api/people/14/", personFourteen);
+requestHelper("http://swapi.co/api/films/", filmsRequest);
